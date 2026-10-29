@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Непокоренная Беларусь</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+ 
+</head>
+<body>
+
+<nav>
+  <a href="#hero">Главная</a>
+  <a href="#map-section">Карта памяти</a>
+  <a href="#heroes">Герои</a>
+  <a href="#generations">Связь поколений</a>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <div class="badge">Конкурсный проект</div>
+    <h1>Непокоренная Беларусь</h1>
+    <p class="hero-subtitle">Интерактивный проект о подвиге народа и сохранении исторической памяти</p>
+    
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-number">1 из 3</span>
+        <div class="hero-stat-label">жителей погиб</div>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-number">9 200+</span>
+        <div class="hero-stat-label">деревень сожжено</div>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-number">1 255</span>
+        <div class="hero-stat-label">партизанских отрядов</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="map-section" class="map-section fade-in">
+  <h2>🗺️ Карта памяти Беларуси</h2>
+  <p class="map-intro">
+    Интерактивная карта мест захоронений и мемориалов Великой Отечественной войны. 
+    Нажмите на пульсирующую точку, чтобы узнать историю места и увидеть список захороненных героев.
+  </p>
+  
+  <div class="legend">
+    <div class="legend-item">
+      <div class="legend-dot memorial"></div>
+      <span>Мемориальный комплекс</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot massive"></div>
+      <span>Место массового захоронения</span>
+    </div>
+  </div>
+
+  <div id="map"></div>
+
+  <div class="memorials-grid" id="memorialsGrid"></div>
+</section>
+
+<section id="heroes" class="fade-in">
+  <h2>Лица Победы</h2>
+  
+  <div class="cards-grid">
+    <div class="card">
+      <div class="card-img" style="background-image: url('media/marat.png'); background-size: cover; background-position: center;"></div>
+      <div class="card-content">
+        <h3>Марат Казей</h3>
+        <p>Юный герой-партизан, разведчик отряда имени К.Е. Ворошилова. Погиб в бою в 1944 году, подорвав себя последней гранатой, окруженный врагами. Герой Советского Союза.</p>
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-img" style="background-image: url('media/zaslonow.jpg'); background-size: cover; background-position: center;"></div>
+      <div class="card-content">
+        <h3>Константин Заслонов</h3>
+        <p>Легендарный командир партизанского движения в Беларуси. Организатор диверсий на железных дорогах, геройски погиб в бою под Оршей в 1942 году.</p>
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-img" style="background-image: url('media/mazanik.jpg'); background-size: cover; background-position: center;"></div>
+      <div class="card-content">
+        <h3>Елена Мазаник</h3>
+        <p>Герой Советского Союза, участница подполья. В составе группы ликвидировала гауляйтера Беларуси Вильгельма Кубе, что стало одной из самых дерзких операций подполья.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="generations" class="generations-section fade-in">
+  <h2>Связь поколений</h2>
+  <div class="generations-intro">
+    <p>
+      Война давно закончилась. Уходят последние её свидетели. Но <span class="highlight">память не имеет срока давности</span> — она живёт в каждом из нас, передаваясь от дедов к отцам, от отцов к детям, от детей — к тем, кто ещё только родится.
+    </p>
+    <p>
+      Мы помним не потому, что обязаны. Мы помним, потому что <span class="highlight">без этой памяти мы перестаём быть собой</span>.
+    </p>
+  </div>
+
+  <h3 style="text-align: center; color: var(--gold); font-size: 1.5em; margin-bottom: 40px; font-weight: 500;">Голоса сквозь время</h3>
+  
+  <div class="voices-grid">
+    <div class="voice-card">
+      <div class="voice-generation">Поколение победителей</div>
+      <p class="voice-text">
+        «Мы не хотели войны. Но когда она пришла на нашу землю, у нас не было другого выбора — кроме как защитить своих детей. Мы выстояли, потому что за нами была правда.»
+      </p>
+      <div class="voice-author">
+        <div class="voice-avatar">В</div>
+        <div>
+          <div class="voice-name">Ветеран Великой Отечественной</div>
+          <div class="voice-role">1941–1945</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="voice-card">
+      <div class="voice-generation">Дети войны</div>
+      <p class="voice-text">
+        «Мне было семь, когда началась война. Я помню голод, страх, но помню и руки матери, которые всегда были тёплыми. Мы выросли быстро — война не оставляла выбора быть ребёнком.»
+      </p>
+      <div class="voice-author">
+        <div class="voice-avatar">Н</div>
+        <div>
+          <div class="voice-name">Ребёнок военных лет</div>
+          <div class="voice-role">1941–1945</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="voice-card">
+      <div class="voice-generation">Современное поколение</div>
+      <p class="voice-text">
+        «Я никогда не видел войны. Но я видел фотографии прадеда в гимнастёрке, слышал рассказы бабушки о её отце. Эта память — часть меня. Я обязан её сохранить и передать дальше.»
+      </p>
+      <div class="voice-author">
+        <div class="voice-avatar">М</div>
+        <div>
+          <div class="voice-name">Молодое поколение</div>
+          <div class="voice-role">Сегодня</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="memory-timeline">
+    <h3 class="timeline-title">Лента памяти: как мы помним</h3>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-year">1941–1944</div>
+          <div class="timeline-text">Партизанское движение. Более 370 000 участников подполья и партизан на территории Беларуси.</div>
+        </div>
+        <div class="timeline-dot"></div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-year">1944</div>
+          <div class="timeline-text">Операция «Багратион». Освобождение Беларуси. Начало восстановления мирной жизни.</div>
+        </div>
+        <div class="timeline-dot"></div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-year">1969</div>
+          <div class="timeline-text">Создан мемориальный комплекс «Хатынь» — символ трагедии сожженных деревень.</div>
+        </div>
+        <div class="timeline-dot"></div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-year">2015</div>
+          <div class="timeline-text">Открыт обновленный музей истории Великой Отечественной войны в Минске — один из крупнейших в мире.</div>
+        </div>
+        <div class="timeline-dot"></div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-year">Сегодня</div>
+          <div class="timeline-text">Поисковые отряды, акции «Бессмертный полк», благоустройство мемориалов. Молодёжь хранит память.</div>
+        </div>
+        <div class="timeline-dot"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="call-to-remember">
+    <h3>Мы помним. Мы гордимся. Мы передаём.</h3>
+    <p>
+      Каждый раз, когда мы произносим имя героя, возлагаем цветы к мемориалу, рассказываем детям о подвиге прадедов — мы делаем так, чтобы эта память никогда не угасла. Потому что народ, который помнит, — непобедим.
+    </p>
+  </div>
+</section>
+
+
+<footer>
+  <p style="margin-top: 20px; font-style: italic; color: var(--gold); font-size: 1.2em;">
+    «Никто не забыт, ничто не забыто»
+  </p>
+  <p style="margin-top: 20px; opacity: 0.6;">© 2026. Все права на материалы проекта принадлежат автору.</p>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+  const memorials = [
+    { id: 'brest', name: 'Брестская крепость', coords: [52.0876, 23.6567], type: 'memorial', desc: 'Защитники крепости приняли первый удар войны 22 июня 1941 года.', page: 'html/brest.html', buried: 'более 3 000' },
+    { id: 'khatyn', name: 'Хатынь', coords: [54.3289, 28.4000], type: 'massive', desc: 'Мемориал на месте деревни, сожжённой вместе с жителями 22 марта 1943 года.', page: 'html/khatyn.html', buried: '149 человек' },
+    { id: 'trostenets', name: 'Тростенец', coords: [53.8667, 27.6500], type: 'massive', desc: 'Крупнейший лагерь смерти на территории Беларуси.', page: 'html/trostenets.html', buried: 'более 206 000' },
+    { id: 'kurgan', name: 'Курган Славы', coords: [53.9500, 27.7333], type: 'memorial', desc: 'Мемориал в честь воинов-освободителей и партизан Беларуси.', page: 'html/kurgan.html', buried: 'более 500' },
+    { id: 'minsk', name: 'Музей истории ВОВ, Минск', coords: [53.9045, 27.5615], type: 'memorial', desc: 'Крупнейший музей войны в СНГ. Здесь хранятся имена более 160 000 воинов.', page: 'html/minsk.html', buried: 'более 160 000' },
+    { id: 'krasny-bereg', name: 'Красный Берег', coords: [52.9167, 29.8500], type: 'massive', desc: 'Мемориал «Детям — жертвам Великой Отечественной войны».', page: 'html/krasny-bereg.html', buried: 'более 4 000' },
+    { id: 'dalva', name: 'Дальва', coords: [54.8500, 27.7000], type: 'massive', desc: 'Место крупнейшего партизанского сражения в истории.', page: 'html/dalva.html', buried: 'более 1 000' },
+    { id: 'ola', name: 'Ола', coords: [52.3833, 27.5333], type: 'massive', desc: 'Мемориал на месте сожжённой деревни.', page: 'html/ola.html', buried: 'более 1 700' }
+  ];
+
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const map = L.map('map', {
+      center: [53.7, 27.5],
+      zoom: 7,
+      zoomControl: true,
+      scrollWheelZoom: true
+    });
+
+    L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenTopoMap (CC-BY-SA)',
+      maxZoom: 17,
+      subdomains: 'abc'
+    }).addTo(map);
+
+    function createIcon(type) {
+      const color = type === 'memorial' ? '#c41e3a' : '#d4af37';
+      return L.divIcon({
+        className: 'custom-marker',
+        html: `
+          <div style="
+            width: 30px;
+            height: 30px;
+            background: ${color};
+            border: 3px solid #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 15px ${color}, 0 0 30px ${color}80;
+            cursor: pointer;
+            animation: pulse 2s infinite;
+          "></div>
+        `,
+        iconSize: [30, 30],
+        iconAnchor: [15, 15]
+      });
+    }
+
+    memorials.forEach(m => {
+      const marker = L.marker(m.coords, { icon: createIcon(m.type) }).addTo(map);
+
+      const popupContent = `
+        <div class="popup-title">${m.name}</div>
+        <div class="popup-count">🕯️ Захоронено: ${m.buried}</div>
+        <div class="popup-desc">${m.desc}</div>
+        <a href="${m.page}" class="popup-btn">Открыть список →</a>
+      `;
+
+      marker.bindPopup(popupContent, { maxWidth: 280 });
+    });
+
+    const grid = document.getElementById('memorialsGrid');
+    memorials.forEach(m => {
+      const card = document.createElement('a');
+      card.href = m.page;
+      card.className = 'memorial-card';
+      card.innerHTML = `
+        <h3>${m.name}</h3>
+        <p>${m.desc}</p>
+        <div class="count">🕯️ Захоронено: ${m.buried}</div>
+      `;
+      grid.appendChild(card);
+    });
+
+    setTimeout(() => map.invalidateSize(), 100);
+  });
+</script>
+
+</body>
+</html>

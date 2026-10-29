@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Курган Славы — Список захороненных</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg-primary: #0a0a0a; --bg-secondary: #1a1a1a; --bg-card: #141414;
+    --text-primary: #ffffff; --text-secondary: #a0a0a0;
+    --accent: #c41e3a; --gold: #d4af37; --border: #2a2a2a;
+  }
+  body { font-family: -apple-system, sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+  nav { position: fixed; top: 0; left: 0; right: 0; background: rgba(10,10,10,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 20px; z-index: 1000; display: flex; justify-content: center; gap: 30px; }
+  nav a { color: var(--text-secondary); text-decoration: none; font-weight: 500; }
+  nav a:hover { color: var(--gold); }
+  .header { padding: 120px 20px 60px; text-align: center; background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), transparent); border-bottom: 1px solid var(--border); }
+  .header .badge { display: inline-block; background: rgba(212, 175, 55, 0.2); border: 1px solid var(--gold); color: var(--gold); padding: 6px 18px; border-radius: 50px; font-size: 0.85em; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; }
+  .header h1 { font-size: clamp(2em, 4vw, 3em); margin-bottom: 15px; background: linear-gradient(135deg, #fff, #a0a0a0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .header p { color: var(--text-secondary); max-width: 700px; margin: 0 auto 20px; font-size: 1.1em; }
+  .stats { display: flex; justify-content: center; gap: 40px; margin-top: 30px; flex-wrap: wrap; }
+  .stat-item { text-align: center; }
+  .stat-number { font-size: 2.5em; font-weight: 800; color: var(--gold); display: block; }
+  .stat-label { color: var(--text-secondary); font-size: 0.9em; margin-top: 5px; }
+  .content { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+  .info-block { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 30px; margin-bottom: 40px; border-left: 4px solid var(--gold); }
+  .info-block h2 { color: var(--gold); margin-bottom: 15px; font-size: 1.5em; }
+  .info-block p { color: var(--text-secondary); line-height: 1.8; }
+  .list-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 20px; }
+  .list-header h2 { color: var(--gold); font-size: 1.8em; }
+  .search-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 10px 15px; color: var(--text-primary); font-size: 1em; width: 250px; max-width: 100%; }
+  .search-box:focus { outline: none; border-color: var(--gold); }
+  .people-list { display: grid; gap: 15px; }
+  .person-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 25px; transition: all 0.3s; display: grid; grid-template-columns: auto 1fr auto; gap: 20px; align-items: center; }
+  .person-card:hover { border-color: var(--gold); transform: translateX(5px); }
+  .person-rank { background: rgba(212, 175, 55, 0.15); color: var(--gold); padding: 5px 12px; border-radius: 6px; font-size: 0.8em; font-weight: 600; white-space: nowrap; }
+  .person-info h3 { font-size: 1.15em; margin-bottom: 5px; }
+  .person-info p { color: var(--text-secondary); font-size: 0.9em; }
+  .person-years { color: var(--accent); font-weight: 600; font-size: 0.95em; white-space: nowrap; }
+  .back-btn { display: inline-block; background: var(--accent); color: white; padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 40px; transition: all 0.3s; }
+  .back-btn:hover { background: var(--gold); color: var(--bg-primary); }
+  footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 40px 20px; text-align: center; color: var(--text-secondary); margin-top: 60px; }
+  footer .quote { color: var(--gold); font-style: italic; margin-bottom: 10px; }
+  @media (max-width: 600px) { .person-card { grid-template-columns: 1fr; gap: 10px; } .person-rank, .person-years { justify-self: start; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html">← Карта памяти</a>
+</nav>
+
+<div class="header">
+  <div class="badge">Мемориальный комплекс</div>
+  <h1>Курган Славы</h1>
+  <p>Монумент в честь воинов-освободителей и партизан Беларуси. Возведён на месте освобождения Беларуси от немецко-фашистских захватчиков.</p>
+  
+  <div class="stats">
+    <div class="stat-item">
+      <span class="stat-number">35,6 м</span>
+      <div class="stat-label">высота монумента</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">1969</span>
+      <div class="stat-label">год открытия</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">24</span>
+      <div class="stat-label">метра барельефа</div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="info-block">
+    <h2>📜 О мемориале</h2>
+    <p>
+      Курган Славы — мемориальный комплекс в Смолевичском районе Минской области, в 10 км от Минска по московскому шоссе. Открыт 5 июля 1969 года в честь 25-летия освобождения Беларуси. Высота насыпного кургана — 35,6 м, на вершине установлено кольцо из четырёх штыков высотой 27 м, символизирующих освобождение Беларуси войсками 1-го, 2-го, 3-го Белорусских и 1-го Прибалтийского фронтов. У подножия — вечный огонь и барельефы с изображениями партизан и воинов-освободителей. В основании кургана заложена земля с мест героических сражений и братских могил.
+    </p>
+  </div>
+
+  <div class="list-header">
+    <h2>⭐ Герои, чья земля здесь захоронена</h2>
+    <input type="text" class="search-box" id="searchInput" placeholder="🔍 Поиск по имени...">
+  </div>
+
+  <div class="people-list" id="peopleList"></div>
+</div>
+
+<footer>
+  <p class="quote">«Никто не забыт, ничто не забыто»</p>
+</footer>
+
+<script>
+  const people = [
+    { rank: 'Генерал армии', name: 'Черняховский Иван Данилович', years: '1906–1945', info: 'Командующий 3-м Белорусским фронтом. Дважды Герой Советского Союза.' },
+    { rank: 'Маршал', name: 'Рокоссовский Константин Константинович', years: '1896–1968', info: 'Командующий 1-м Белорусским фронтом. Дважды Герой Советского Союза.' },
+    { rank: 'Маршал', name: 'Василевский Александр Михайлович', years: '1895–1977', info: 'Координатор действий фронтов. Дважды Герой Советского Союза.' },
+    { rank: 'Генерал-полковник', name: 'Баграмян Иван Христофорович', years: '1897–1982', info: 'Командующий 1-м Прибалтийским фронтом. Дважды Герой Советского Союза.' },
+    { rank: 'Партизан', name: 'Минай Филиппович Шмырёв', years: '1891–1942', info: 'Легендарный «Батя», командир партизанского отряда. Герой Советского Союза.' },
+    { rank: 'Партизанка', name: 'Елена Ивановна Мазаник', years: '1914–1996', info: 'Подпольщица, ликвидировавшая гауляйтера Кубе. Герой Советского Союза.' },
+    { rank: 'Партизан', name: 'Константин Сергеевич Заслонов', years: '1909–1942', info: 'Командир подпольной группы в Орше. Герой Советского Союза.' },
+    { rank: 'Партизан', name: 'Сергей Осипович Гризодубов', years: '1915–1943', info: 'Комиссар партизанской бригады «Дяди Вася».' },
+    { rank: 'Генерал-майор', name: 'Попов Сергей Степанович', years: '1902–1944', info: 'Командир 78-й стрелковой дивизии, освобождавшей Оршу.' },
+    { rank: 'Полковник', name: 'Лизюков Александр Ильич', years: '1900–1942', info: 'Командир оперативной группы, геройски погиб под Воронежем.' },
+    { rank: 'Старший лейтенант', name: 'Павлов Иван Фёдорович', years: '1917–1981', info: 'Герой обороны Дома Павлова в Сталинграде. Герой Советского Союза.' },
+    { rank: 'Партизан', name: 'Володько Мария Борисовна', years: '1922–1943', info: 'Подпольщица, связная Минского подполья. Герой Советского Союза (посмертно).' },
+    { rank: 'Генерал-лейтенант', name: 'Горбатов Александр Васильевич', years: '1891–1973', info: 'Командующий 3-й армией. Герой Советского Союза.' },
+    { rank: 'Партизан', name: 'Ковшова Наталия Венедиктовна', years: '1924–1942', info: 'Снайпер, закрывшая собой амбразуру. Герой Советского Союза (посмертно).' },
+    { rank: 'Генерал армии', name: 'Батов Павел Иванович', years: '1897–1985', info: 'Командующий 65-й армией. Дважды Герой Советского Союза.' }
+  ];
+
+  const list = document.getElementById('peopleList');
+  const searchInput = document.getElementById('searchInput');
+
+  function renderList(filter = '') {
+    list.innerHTML = '';
+    const filtered = people.filter(p => 
+      p.name.toLowerCase().includes(filter.toLowerCase()) ||
+      p.rank.toLowerCase().includes(filter.toLowerCase())
+    );
+
+    if (filtered.length === 0) {
+      list.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 30px;">Ничего не найдено</p>';
+      return;
+    }
+
+    filtered.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'person-card';
+      card.innerHTML = `
+        <div class="person-rank">${p.rank}</div>
+        <div class="person-info">
+          <h3>${p.name}</h3>
+          <p>${p.info}</p>
+        </div>
+        <div class="person-years">${p.years}</div>
+      `;
+      list.appendChild(card);
+    });
+  }
+
+  searchInput.addEventListener('input', e => renderList(e.target.value));
+  renderList();
+</script>
+
+</body>
+</html>

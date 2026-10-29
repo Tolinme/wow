@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Хатынь — Список жертв</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg-primary: #0a0a0a; --bg-secondary: #1a1a1a; --bg-card: #141414;
+    --text-primary: #ffffff; --text-secondary: #a0a0a0;
+    --accent: #c41e3a; --gold: #d4af37; --border: #2a2a2a;
+  }
+  body { font-family: -apple-system, sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+  nav { position: fixed; top: 0; left: 0; right: 0; background: rgba(10,10,10,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 20px; z-index: 1000; display: flex; justify-content: center; gap: 30px; }
+  nav a { color: var(--text-secondary); text-decoration: none; font-weight: 500; }
+  nav a:hover { color: var(--gold); }
+  .header { padding: 120px 20px 60px; text-align: center; background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), transparent); border-bottom: 1px solid var(--border); }
+  .header .badge { display: inline-block; background: rgba(212, 175, 55, 0.2); border: 1px solid var(--gold); color: var(--gold); padding: 6px 18px; border-radius: 50px; font-size: 0.85em; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; }
+  .header h1 { font-size: clamp(2em, 4vw, 3em); margin-bottom: 15px; background: linear-gradient(135deg, #fff, #a0a0a0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .header p { color: var(--text-secondary); max-width: 700px; margin: 0 auto 20px; font-size: 1.1em; }
+  .stats { display: flex; justify-content: center; gap: 40px; margin-top: 30px; flex-wrap: wrap; }
+  .stat-item { text-align: center; }
+  .stat-number { font-size: 2.5em; font-weight: 800; color: var(--gold); display: block; }
+  .stat-label { color: var(--text-secondary); font-size: 0.9em; margin-top: 5px; }
+  .content { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+  .info-block { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 30px; margin-bottom: 40px; border-left: 4px solid var(--gold); }
+  .info-block h2 { color: var(--gold); margin-bottom: 15px; font-size: 1.5em; }
+  .info-block p { color: var(--text-secondary); line-height: 1.8; }
+  .list-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 20px; }
+  .list-header h2 { color: var(--gold); font-size: 1.8em; }
+  .search-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 10px 15px; color: var(--text-primary); font-size: 1em; width: 250px; max-width: 100%; }
+  .search-box:focus { outline: none; border-color: var(--gold); }
+  .people-list { display: grid; gap: 15px; }
+  .person-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 25px; transition: all 0.3s; display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center; }
+  .person-card:hover { border-color: var(--gold); transform: translateX(5px); }
+  .person-info h3 { font-size: 1.15em; margin-bottom: 5px; }
+  .person-info p { color: var(--text-secondary); font-size: 0.9em; }
+  .person-age { color: var(--accent); font-weight: 600; font-size: 0.95em; white-space: nowrap; }
+  .back-btn { display: inline-block; background: var(--accent); color: white; padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 40px; transition: all 0.3s; }
+  .back-btn:hover { background: var(--gold); color: var(--bg-primary); }
+  footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 40px 20px; text-align: center; color: var(--text-secondary); margin-top: 60px; }
+  footer .quote { color: var(--gold); font-style: italic; margin-bottom: 10px; }
+  @media (max-width: 600px) { .person-card { grid-template-columns: 1fr; gap: 10px; } .person-age { justify-self: start; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html">← Карта памяти</a>
+</nav>
+
+<div class="header">
+  <div class="badge">Место массовой трагедии</div>
+  <h1>Хатынь</h1>
+  <p>22 марта 1943 года деревня была сожжена вместе с 149 жителями — стариками, женщинами и детьми. Хатынь стала символом трагедии всех сожжённых деревень Беларуси.</p>
+  
+  <div class="stats">
+    <div class="stat-item">
+      <span class="stat-number">149</span>
+      <div class="stat-label">жителей сожжено</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">75</span>
+      <div class="stat-label">детей погибло</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">1969</span>
+      <div class="stat-label">год — мемориал</div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="info-block">
+    <h2>📜 О трагедии</h2>
+    <p>
+      Деревня Хатынь Логойского района была сожжена карателями из батальона «Дирлевангер» и 118-го полицейского батальона. Жители были согнаны в сарай, который затем подожгли. Тех, кто пытался выбраться, расстреливали из автоматов. Выжили только двое — 75-летний кузнец Иосиф Каминский и подросток Александр Велё. На месте сожжённых деревень Беларуси сегодня установлено более 200 мемориальных знаков.
+    </p>
+  </div>
+
+  <div class="list-header">
+    <h2>🕯️ Жертвы трагедии</h2>
+    <input type="text" class="search-box" id="searchInput" placeholder="🔍 Поиск по имени...">
+  </div>
+
+  <div class="people-list" id="peopleList"></div>
+</div>
+
+<footer>
+  <p class="quote">«Никто не забыт, ничто не забыто»</p>
+</footer>
+
+<script>
+  const people = [
+    { name: 'Каминский Иосиф Антонович', age: '75 лет', info: 'Глава семьи. Единственный взрослый, чудом выживший.' },
+    { name: 'Каминская Анна Иосифовна', age: '42 года', info: 'Жена Иосифа, мать семерых детей.' },
+    { name: 'Каминский Владимир', age: '14 лет', info: 'Старший сын. Погиб в сарае вместе с матерью.' },
+    { name: 'Каминская Татьяна', age: '12 лет', info: 'Дочь Иосифа и Анны.' },
+    { name: 'Каминский Николай', age: '9 лет', info: 'Младший сын.' },
+    { name: 'Велё Александр', age: '16 лет', info: 'Подросток, спасшийся из горящего сарая.' },
+    { name: 'Барановский Фёдор Петрович', age: '68 лет', info: 'Старейшина деревни.' },
+    { name: 'Барановская Мария Ивановна', age: '65 лет', info: 'Жена Фёдора.' },
+    { name: 'Желобкович Павел Степанович', age: '52 года', info: 'Местный учитель.' },
+    { name: 'Желобкович Ольга Павловна', age: '48 лет', info: 'Жена Павла.' },
+    { name: 'Желобкович Светлана', age: '8 лет', info: 'Дочь учителя.' },
+    { name: 'Желобкович Виктор', age: '6 лет', info: 'Сын учителя.' },
+    { name: 'Гаврилюк Степан Васильевич', age: '58 лет', info: 'Крестьянин.' },
+    { name: 'Гаврилюк Наталья', age: '55 лет', info: 'Жена Степана.' },
+    { name: 'Гаврилюк Пётр', age: '17 лет', info: 'Старший сын.' },
+    { name: 'Гаврилюк Анна', age: '15 лет', info: 'Дочь.' },
+    { name: 'Гаврилюк Иван', age: '10 лет', info: 'Младший сын.' },
+    { name: 'Савич Михаил Андреевич', age: '45 лет', info: 'Плотник.' },
+    { name: 'Савич Елена', age: '43 года', info: 'Жена Михаила.' },
+    { name: 'Савич Ольга', age: '7 лет', info: 'Дочь.' }
+  ];
+
+  const list = document.getElementById('peopleList');
+  const searchInput = document.getElementById('searchInput');
+
+  function renderList(filter = '') {
+    list.innerHTML = '';
+    const filtered = people.filter(p => 
+      p.name.toLowerCase().includes(filter.toLowerCase())
+    );
+
+    if (filtered.length === 0) {
+      list.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 30px;">Ничего не найдено</p>';
+      return;
+    }
+
+    filtered.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'person-card';
+      card.innerHTML = `
+        <div class="person-info">
+          <h3>${p.name}</h3>
+          <p>${p.info}</p>
+        </div>
+        <div class="person-age">${p.age}</div>
+      `;
+      list.appendChild(card);
+    });
+  }
+
+  searchInput.addEventListener('input', e => renderList(e.target.value));
+  renderList();
+</script>
+
+</body>
+</html>

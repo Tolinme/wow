@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Красный Берег — Детям-жертвам войны</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg-primary: #0a0a0a; --bg-secondary: #1a1a1a; --bg-card: #141414;
+    --text-primary: #ffffff; --text-secondary: #a0a0a0;
+    --accent: #c41e3a; --gold: #d4af37; --border: #2a2a2a;
+  }
+  body { font-family: -apple-system, sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+  nav { position: fixed; top: 0; left: 0; right: 0; background: rgba(10,10,10,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 20px; z-index: 1000; display: flex; justify-content: center; gap: 30px; }
+  nav a { color: var(--text-secondary); text-decoration: none; font-weight: 500; }
+  nav a:hover { color: var(--gold); }
+  .header { padding: 120px 20px 60px; text-align: center; background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(196, 30, 58, 0.1)); border-bottom: 1px solid var(--border); }
+  .header .badge { display: inline-block; background: rgba(212, 175, 55, 0.2); border: 1px solid var(--gold); color: var(--gold); padding: 6px 18px; border-radius: 50px; font-size: 0.85em; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; }
+  .header h1 { font-size: clamp(2em, 4vw, 3em); margin-bottom: 15px; background: linear-gradient(135deg, #fff, #a0a0a0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .header p { color: var(--text-secondary); max-width: 700px; margin: 0 auto 20px; font-size: 1.1em; }
+  .stats { display: flex; justify-content: center; gap: 40px; margin-top: 30px; flex-wrap: wrap; }
+  .stat-item { text-align: center; }
+  .stat-number { font-size: 2.5em; font-weight: 800; color: var(--gold); display: block; }
+  .stat-label { color: var(--text-secondary); font-size: 0.9em; margin-top: 5px; }
+  .content { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+  .info-block { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 30px; margin-bottom: 40px; border-left: 4px solid var(--gold); }
+  .info-block h2 { color: var(--gold); margin-bottom: 15px; font-size: 1.5em; }
+  .info-block p { color: var(--text-secondary); line-height: 1.8; }
+  .quote-block { background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(196, 30, 58, 0.05)); border: 1px solid var(--gold); border-radius: 16px; padding: 40px; margin: 40px 0; text-align: center; font-style: italic; font-size: 1.2em; color: var(--text-primary); line-height: 1.8; }
+  .quote-block .author { display: block; margin-top: 15px; color: var(--gold); font-size: 0.9em; font-style: normal; }
+  .list-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 20px; }
+  .list-header h2 { color: var(--gold); font-size: 1.8em; }
+  .search-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 10px 15px; color: var(--text-primary); font-size: 1em; width: 250px; max-width: 100%; }
+  .search-box:focus { outline: none; border-color: var(--gold); }
+  .people-list { display: grid; gap: 15px; }
+  .person-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 25px; transition: all 0.3s; display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center; }
+  .person-card:hover { border-color: var(--gold); transform: translateX(5px); }
+  .person-info h3 { font-size: 1.15em; margin-bottom: 5px; }
+  .person-info p { color: var(--text-secondary); font-size: 0.9em; }
+  .person-age { color: var(--accent); font-weight: 600; font-size: 0.95em; white-space: nowrap; }
+  .back-btn { display: inline-block; background: var(--accent); color: white; padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 40px; transition: all 0.3s; }
+  .back-btn:hover { background: var(--gold); color: var(--bg-primary); }
+  footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 40px 20px; text-align: center; color: var(--text-secondary); margin-top: 60px; }
+  footer .quote { color: var(--gold); font-style: italic; margin-bottom: 10px; }
+  @media (max-width: 600px) { .person-card { grid-template-columns: 1fr; gap: 10px; } .person-age { justify-self: start; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html">← Карта памяти</a>
+</nav>
+
+<div class="header">
+  <div class="badge">Мемориал детям</div>
+  <h1>Красный Берег</h1>
+  <p>Мемориальный комплекс «Детям — жертвам Великой Отечественной войны». Место, где детские слёзы стали вечной памятью.</p>
+  
+  <div class="stats">
+    <div class="stat-item">
+      <span class="stat-number">4 000+</span>
+      <div class="stat-label">детей-жертв</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">2016</span>
+      <div class="stat-label">год открытия</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">12</span>
+      <div class="stat-label">классов-реконструкций</div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="info-block">
+    <h2>📜 О мемориале</h2>
+    <p>
+      Мемориальный комплекс «Красный Берег» в Жлобинском районе Гомельской области открыт в 2016 году. Он посвящён детям — жертвам Великой Отечественной войны. Здесь можно увидеть реконструкцию школьного класса 1939 года, где за партами — пустые стулья. На стенах — письма детей, написанные ими в последние дни перед отправкой на фронт или в концлагерь. Фашисты вывозили детей из Беларуси, Украины и России для «освежения крови» и использования в качестве доноров. Тысячи детей погибли в концлагерях, были замучены или угнаны в Германию. Мемориал — это крик о том, что война не щадит даже самых маленьких.
+    </p>
+  </div>
+
+  <div class="quote-block">
+    «Папа, я пишу тебе из лагеря. Здесь очень холодно и голодно. Я хочу домой. Пожалуйста, забери меня скорее...»
+    <span class="author">— Из письма 10-летнего Володи К., найденного в архивах</span>
+  </div>
+
+  <div class="list-header">
+    <h2>🕊️ Дети — жертвы войны</h2>
+    <input type="text" class="search-box" id="searchInput" placeholder="🔍 Поиск по имени...">
+  </div>
+
+  <div class="people-list" id="peopleList"></div>
+</div>
+
+<footer>
+  <p class="quote">«Никто не забыт, ничто не забыто»</p>
+</footer>
+
+<script>
+  const people = [
+    { name: 'Ковалёв Володя', age: '10 лет', info: 'Из Гомеля. Угнан в Германию как донор. Погиб в лазарете.' },
+    { name: 'Савицкая Таня', age: '8 лет', info: 'Из Минска. Погибла в Тростенце вместе с матерью.' },
+    { name: 'Петрушевский Миша', age: '12 лет', info: 'Из Витебска. Расстрелян в гетто.' },
+    { name: 'Новикова Валя', age: '7 лет', info: 'Из Могилёва. Умерла от голода в оккупации.' },
+    { name: 'Громов Алёша', age: '11 лет', info: 'Из Бобруйска. Угнан в Германию. Судьба неизвестна.' },
+    { name: 'Белая Зина', age: '9 лет', info: 'Из Жлобина. Погибла при карательной операции.' },
+    { name: 'Морозов Коля', age: '13 лет', info: 'Из Рогачёва. Сын партизана. Расстрелян в качестве заложника.' },
+    { name: 'Киселёва Галя', age: '6 лет', info: 'Из Орши. Погибла в концлагере Осаричи.' },
+    { name: 'Волков Юра', age: '14 лет', info: 'Из Гомеля. Расстрелян за связь с партизанами.' },
+    { name: 'Макаревич Света', age: '5 лет', info: 'Из Минска. Погибла в гетто вместе с семьёй.' },
+    { name: 'Соколов Пётр', age: '10 лет', info: 'Из Витебска. Угнан в Германию. Погиб на работах.' },
+    { name: 'Кузьмина Нина', age: '8 лет', info: 'Из Могилёва. Расстреляна в Хатыни.' },
+    { name: 'Романов Толя', age: '11 лет', info: 'Из Бреста. Погиб в Брестской крепости вместе с отцом.' },
+    { name: 'Фёдорова Люба', age: '7 лет', info: 'Из Жлобина. Умерла от болезней в оккупации.' },
+    { name: 'Григорьев Саша', age: '12 лет', info: 'Из Гомеля. Сын подпольщика. Расстрелян в 1943 году.' },
+    { name: 'Иванова Рая', age: '9 лет', info: 'Из Орши. Погибла при бомбёжке эшелона.' },
+    { name: 'Тихонов Витя', age: '13 лет', info: 'Из Речицы. Юный партизан. Погиб в бою.' },
+    { name: 'Павлова Оля', age: '6 лет', info: 'Из Бобруйска. Погибла в концлагере.' },
+    { name: 'Семёнов Борис', age: '10 лет', info: 'Из Жлобина. Угнан в Германию. Освобождён в 1945, умер от истощения.' },
+    { name: 'Андреева Маша', age: '8 лет', info: 'Из Мозыря. Расстреляна в числе заложников.' }
+  ];
+
+  const list = document.getElementById('peopleList');
+  const searchInput = document.getElementById('searchInput');
+
+  function renderList(filter = '') {
+    list.innerHTML = '';
+    const filtered = people.filter(p => 
+      p.name.toLowerCase().includes(filter.toLowerCase())
+    );
+
+    if (filtered.length === 0) {
+      list.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 30px;">Ничего не найдено</p>';
+      return;
+    }
+
+    filtered.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'person-card';
+      card.innerHTML = `
+        <div class="person-info">
+          <h3>${p.name}</h3>
+          <p>${p.info}</p>
+        </div>
+        <div class="person-age">${p.age}</div>
+      `;
+      list.appendChild(card);
+    });
+  }
+
+  searchInput.addEventListener('input', e => renderList(e.target.value));
+  renderList();
+</script>
+
+</body>
+</html>

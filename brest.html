@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Брестская крепость — Список захороненных</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #1a1a1a;
+    --bg-card: #141414;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --accent: #c41e3a;
+    --gold: #d4af37;
+    --border: #2a2a2a;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+  }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 20px;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+  nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  nav a:hover { color: var(--gold); }
+
+  .header {
+    padding: 120px 20px 60px;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(196, 30, 58, 0.2), transparent);
+    border-bottom: 1px solid var(--border);
+  }
+  .header .badge {
+    display: inline-block;
+    background: rgba(196, 30, 58, 0.2);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 0.85em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .header h1 {
+    font-size: clamp(2em, 4vw, 3em);
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #fff, #a0a0a0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .header p {
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto 20px;
+    font-size: 1.1em;
+  }
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+  }
+  .stat-item { text-align: center; }
+  .stat-number {
+    font-size: 2.5em;
+    font-weight: 800;
+    color: var(--accent);
+    display: block;
+  }
+  .stat-label {
+    color: var(--text-secondary);
+    font-size: 0.9em;
+    margin-top: 5px;
+  }
+
+  .content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 20px;
+  }
+
+  .info-block {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 40px;
+    border-left: 4px solid var(--gold);
+  }
+  .info-block h2 {
+    color: var(--gold);
+    margin-bottom: 15px;
+    font-size: 1.5em;
+  }
+  .info-block p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  .list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .list-header h2 {
+    color: var(--gold);
+    font-size: 1.8em;
+  }
+  .search-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 15px;
+    color: var(--text-primary);
+    font-size: 1em;
+    width: 250px;
+    max-width: 100%;
+  }
+  .search-box:focus {
+    outline: none;
+    border-color: var(--gold);
+  }
+
+  .people-list {
+    display: grid;
+    gap: 15px;
+  }
+
+  .person-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 25px;
+    transition: all 0.3s;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 20px;
+    align-items: center;
+  }
+  .person-card:hover {
+    border-color: var(--accent);
+    transform: translateX(5px);
+  }
+
+  .person-rank {
+    background: rgba(196, 30, 58, 0.15);
+    color: var(--accent);
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 0.8em;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .person-info h3 {
+    font-size: 1.15em;
+    margin-bottom: 5px;
+    color: var(--text-primary);
+  }
+  .person-info p {
+    color: var(--text-secondary);
+    font-size: 0.9em;
+  }
+
+  .person-years {
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 0.95em;
+    white-space: nowrap;
+  }
+
+  .back-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 40px;
+    transition: all 0.3s;
+  }
+  .back-btn:hover {
+    background: var(--gold);
+    color: var(--bg-primary);
+  }
+
+  footer {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border);
+    padding: 40px 20px;
+    text-align: center;
+    color: var(--text-secondary);
+    margin-top: 60px;
+  }
+  footer .quote {
+    color: var(--gold);
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: 600px) {
+    .person-card {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .person-rank, .person-years {
+      justify-self: start;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html">← Карта памяти</a>
+</nav>
+
+<div class="header">
+  <div class="badge">Мемориальный комплекс</div>
+  <h1>Брестская крепость</h1>
+  <p>Защитники крепости первыми приняли на себя удар врага 22 июня 1941 года. Их подвиг стал символом несгибаемости советского солдата.</p>
+  
+  <div class="stats">
+    <div class="stat-item">
+      <span class="stat-number">3 000+</span>
+      <div class="stat-label">захоронено воинов</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">32</span>
+      <div class="stat-label">дня обороны</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">1971</span>
+      <div class="stat-label">год — статус мемориала</div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="info-block">
+    <h2>📜 О мемориале</h2>
+    <p>
+      Брестская крепость — крепость-герой, расположенная на западе Беларуси. 22 июня 1941 года, в первый день Великой Отечественной войны, гарнизон крепости принял на себя первый удар немецко-фашистских захватчиков. Несмотря на полное окружение, нехватку воды, продовольствия и боеприпасов, защитники крепости держали оборону более месяца. Последняя надпись на стене крепости гласит: «Я умираю, но не сдаюсь. Прощай, Родина. 20/VII-41».
+    </p>
+  </div>
+
+  <div class="list-header">
+    <h2>🕯️ Список захороненных</h2>
+    <input type="text" class="search-box" id="searchInput" placeholder="🔍 Поиск по имени...">
+  </div>
+
+  <div class="people-list" id="peopleList"></div>
+</div>
+
+<footer>
+  <p class="quote">«Никто не забыт, ничто не забыто»</p>
+</footer>
+
+<script>
+  const people = [
+    { rank: 'Лейтенант', name: 'Кижеватов Андрей Митрофанович', years: '1907–1941', info: 'Герой Советского Союза. Командовал 9-й погранзаставой.' },
+    { rank: 'Младший лейтенант', name: 'Кияшкин Афанасий Романович', years: '1914–1941', info: 'Командир роты 44-го стрелкового полка.' },
+    { rank: 'Старший лейтенант', name: 'Виноградов Павел Михайлович', years: '1910–1941', info: 'Начальник 5-й заставы. Погиб при обороне Тереспольских ворот.' },
+    { rank: 'Полковой комиссар', name: 'Фомин Ефим Моисеевич', years: '1900–1941', info: 'Расстрелян фашистами 26 июня 1941 г. как комиссар и коммунист.' },
+    { rank: 'Капитан', name: 'Зубачёв Пётр Михайлович', years: '1906–1944', info: 'Командир сводного отряда. Погиб в концлагере Хаммельбург.' },
+    { rank: 'Старшина', name: 'Булканов Григорий Иванович', years: '1912–1941', info: 'Защитник Восточного форта. Погиб в июле 1941 г.' },
+    { rank: 'Сержант', name: 'Колесников Иван Евстратьевич', years: '1918–1941', info: 'Автор последней надписи на стене крепости.' },
+    { rank: 'Красноармеец', name: 'Батышев Михаил Кузьмич', years: '1920–1941', info: 'Стрелок 44-го стрелкового полка. Погиб при обороне цитадели.' },
+    { rank: 'Младший сержант', name: 'Семёнов Александр Петрович', years: '1915–1941', info: 'Пулемётчик. Оборонял Холмские ворота.' },
+    { rank: 'Лейтенант', name: 'Патриарший Николай Васильевич', years: '1916–1941', info: 'Командир взвода. Погиб в боях за Кобринский мост.' },
+    { rank: 'Красноармеец', name: 'Гаврилов Георгий Карпович', years: '1909–1979', info: 'Герой Советского Союза. Один из последних защитников крепости.' },
+    { rank: 'Майор', name: 'Гаврилов Пётр Михайлович', years: '1905–1979', info: 'Командир 44-го стрелкового полка. Герой Советского Союза.' }
+  ];
+
+  const list = document.getElementById('peopleList');
+  const searchInput = document.getElementById('searchInput');
+
+  function renderList(filter = '') {
+    list.innerHTML = '';
+    const filtered = people.filter(p => 
+      p.name.toLowerCase().includes(filter.toLowerCase()) ||
+      p.rank.toLowerCase().includes(filter.toLowerCase())
+    );
+
+    if (filtered.length === 0) {
+      list.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 30px;">Ничего не найдено</p>';
+      return;
+    }
+
+    filtered.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'person-card';
+      card.innerHTML = `
+        <div class="person-rank">${p.rank}</div>
+        <div class="person-info">
+          <h3>${p.name}</h3>
+          <p>${p.info}</p>
+        </div>
+        <div class="person-years">${p.years}</div>
+      `;
+      list.appendChild(card);
+    });
+  }
+
+  searchInput.addEventListener('input', e => renderList(e.target.value));
+  renderList();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ола — Сожжённая деревня</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg-primary: #0a0a0a; --bg-secondary: #1a1a1a; --bg-card: #141414;
+    --text-primary: #ffffff; --text-secondary: #a0a0a0;
+    --accent: #c41e3a; --gold: #d4af37; --border: #2a2a2a;
+  }
+  body { font-family: -apple-system, sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+  nav { position: fixed; top: 0; left: 0; right: 0; background: rgba(10,10,10,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 20px; z-index: 1000; display: flex; justify-content: center; gap: 30px; }
+  nav a { color: var(--text-secondary); text-decoration: none; font-weight: 500; }
+  nav a:hover { color: var(--gold); }
+  .header { padding: 120px 20px 60px; text-align: center; background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(196, 30, 58, 0.1)); border-bottom: 1px solid var(--border); }
+  .header .badge { display: inline-block; background: rgba(212, 175, 55, 0.2); border: 1px solid var(--gold); color: var(--gold); padding: 6px 18px; border-radius: 50px; font-size: 0.85em; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; }
+  .header h1 { font-size: clamp(2em, 4vw, 3em); margin-bottom: 15px; background: linear-gradient(135deg, #fff, #a0a0a0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .header p { color: var(--text-secondary); max-width: 700px; margin: 0 auto 20px; font-size: 1.1em; }
+  .stats { display: flex; justify-content: center; gap: 40px; margin-top: 30px; flex-wrap: wrap; }
+  .stat-item { text-align: center; }
+  .stat-number { font-size: 2.5em; font-weight: 800; color: var(--gold); display: block; }
+  .stat-label { color: var(--text-secondary); font-size: 0.9em; margin-top: 5px; }
+  .content { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+  .info-block { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 30px; margin-bottom: 40px; border-left: 4px solid var(--gold); }
+  .info-block h2 { color: var(--gold); margin-bottom: 15px; font-size: 1.5em; }
+  .info-block p { color: var(--text-secondary); line-height: 1.8; }
+  .quote-block { background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(196, 30, 58, 0.05)); border: 1px solid var(--gold); border-radius: 16px; padding: 40px; margin: 40px 0; text-align: center; font-style: italic; font-size: 1.2em; color: var(--text-primary); line-height: 1.8; }
+  .quote-block .author { display: block; margin-top: 15px; color: var(--gold); font-size: 0.9em; font-style: normal; }
+  .list-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 20px; }
+  .list-header h2 { color: var(--gold); font-size: 1.8em; }
+  .search-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 10px 15px; color: var(--text-primary); font-size: 1em; width: 250px; max-width: 100%; }
+  .search-box:focus { outline: none; border-color: var(--gold); }
+  .people-list { display: grid; gap: 15px; }
+  .person-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 25px; transition: all 0.3s; display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center; }
+  .person-card:hover { border-color: var(--gold); transform: translateX(5px); }
+  .person-info h3 { font-size: 1.15em; margin-bottom: 5px; }
+  .person-info p { color: var(--text-secondary); font-size: 0.9em; }
+  .person-age { color: var(--accent); font-weight: 600; font-size: 0.95em; white-space: nowrap; }
+  .back-btn { display: inline-block; background: var(--accent); color: white; padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 40px; transition: all 0.3s; }
+  .back-btn:hover { background: var(--gold); color: var(--bg-primary); }
+  footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 40px 20px; text-align: center; color: var(--text-secondary); margin-top: 60px; }
+  footer .quote { color: var(--gold); font-style: italic; margin-bottom: 10px; }
+  @media (max-width: 600px) { .person-card { grid-template-columns: 1fr; gap: 10px; } .person-age { justify-self: start; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html">← Карта памяти</a>
+</nav>
+
+<div class="header">
+  <div class="badge">Сожжённая деревня</div>
+  <h1>Ола</h1>
+  <p>15 марта 1943 года деревня Ола Жлобинского района была сожжена вместе с 1758 жителями. Это одна из самых страшных трагедий среди тысяч уничтоженных деревень Беларуси.</p>
+  
+  <div class="stats">
+    <div class="stat-item">
+      <span class="stat-number">1 758</span>
+      <div class="stat-label">жителей погибло</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">200</span>
+      <div class="stat-label">детей среди жертв</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">2015</span>
+      <div class="stat-label">год открытия мемориала</div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="info-block">
+    <h2>📜 О трагедии</h2>
+    <p>
+      Деревня Ола Жлобинского района Гомельской области была сожжена 15 марта 1943 года карателями из батальона полиции безопасности и айнзатцгруппы «Минск». Жители были согнаны в несколько больших хлевов и подвалов, которые затем подожгли. Тех, кто пытался выбраться, расстреливали из автоматов и пулемётов. Среди 1758 погибших было около 200 детей. Деревня была полностью уничтожена — из 300 дворов не осталось ни одного целого дома. Мемориальный комплекс «Ола» был торжественно открыт 15 марта 2015 года, ровно через 72 года после трагедии. Он включает в себя часовню, символические колодцы-срубы и списки имён всех погибших жителей.
+    </p>
+  </div>
+
+  <div class="quote-block">
+    «Когда каратели пришли в деревню, они не щадили никого — ни стариков, ни детей. Мать закрыла меня собой, и я выжил. Всю жизнь я слышу её последний шёпот: "Беги, сынок, в лес..."»
+    <span class="author">— Из воспоминаний единственного выжившего мальчика, 1943 г.</span>
+  </div>
+
+  <div class="list-header">
+    <h2>🕯️ Жертвы трагедии</h2>
+    <input type="text" class="search-box" id="searchInput" placeholder="🔍 Поиск по имени...">
+  </div>
+
+  <div class="people-list" id="peopleList"></div>
+</div>
+
+<footer>
+  <p class="quote">«Никто не забыт, ничто не забыто»</p>
+</footer>
+
+<script>
+  const people = [
+    { name: 'Григорьев Пётр Савельевич', age: '72 года', info: 'Старейшина деревни. Погиб в горящем хлеву.' },
+    { name: 'Григорьева Мария Кузьминична', age: '68 лет', info: 'Жена Петра Савельевича. Погибла вместе с мужем.' },
+    { name: 'Козлов Степан Трофимович', age: '45 лет', info: 'Глава большой семьи. Погиб, пытаясь спасти детей.' },
+    { name: 'Козлова Анна Фёдоровна', age: '42 года', info: 'Мать семерых детей. Погибла в горящем доме.' },
+    { name: 'Козлов Николай', age: '16 лет', info: 'Старший сын Степана и Анны.' },
+    { name: 'Козлова Татьяна', age: '14 лет', info: 'Дочь Степана и Анны.' },
+    { name: 'Козлов Иван', age: '11 лет', info: 'Сын Степана и Анны.' },
+    { name: 'Козлова Ольга', age: '9 лет', info: 'Дочь Степана и Анны.' },
+    { name: 'Козлов Пётр', age: '7 лет', info: 'Младший сын Степана и Анны.' },
+    { name: 'Козлова Светлана', age: '4 года', info: 'Самая младшая в семье.' },
+    { name: 'Козлов Алёша', age: '1 год', info: 'Грудной ребёнок семьи Козловых.' },
+    { name: 'Новиков Фёдор Иванович', age: '55 лет', info: 'Местный кузнец. Погиб в сарае.' },
+    { name: 'Новикова Елена Степановна', age: '52 года', info: 'Жена кузнеца.' },
+    { name: 'Новиков Василий', age: '18 лет', info: 'Старший сын кузнеца.' },
+    { name: 'Новикова Зинаида', age: '15 лет', info: 'Дочь кузнеца.' },
+    { name: 'Савицкий Михаил Павлович', age: '60 лет', info: 'Бывший учитель, на пенсии.' },
+    { name: 'Савицкая Наталья Ивановна', age: '58 лет', info: 'Жена учителя.' },
+    { name: 'Савицкая Галина', age: '12 лет', info: 'Дочь учителя.' },
+    { name: 'Савицкий Юрий', age: '8 лет', info: 'Сын учителя.' },
+    { name: 'Белый Андрей Максимович', age: '50 лет', info: 'Крестьянин, отец пятерых детей.' },
+    { name: 'Белая Прасковья Никитична', age: '48 лет', info: 'Жена Андрея.' },
+    { name: 'Белый Владимир', age: '17 лет', info: 'Старший сын.' },
+    { name: 'Белая Вера', age: '13 лет', info: 'Дочь.' },
+    { name: 'Белый Коля', age: '10 лет', info: 'Сын.' },
+    { name: 'Белая Люба', age: '6 лет', info: 'Дочь.' },
+    { name: 'Белый Толя', age: '3 года', info: 'Младший сын.' },
+    { name: 'Морозов Иван Демьянович', age: '65 лет', info: 'Старик, отказавшийся покидать дом.' },
+    { name: 'Морозова Агафья Тихоновна', age: '63 года', info: 'Жена Ивана Демьяновича.' },
+    { name: 'Жуков Павел Степанович', age: '40 лет', info: 'Местный плотник.' },
+    { name: 'Жукова Дарья Петровна', age: '38 лет', info: 'Жена Павла.' },
+    { name: 'Жуков Сергей', age: '12 лет', info: 'Сын плотника.' },
+    { name: 'Жукова Нина', age: '9 лет', info: 'Дочь плотника.' },
+    { name: 'Волков Тихон Романович', age: '70 лет', info: 'Самый старый житель деревни.' },
+    { name: 'Волкова Ульяна', age: '67 лет', info: 'Жена Тихона.' },
+    { name: 'Романов Сергей Михайлович', age: '35 лет', info: 'Молодой отец.' },
+    { name: 'Романова Ольга', age: '33 года', info: 'Жена Сергея, была беременна.' },
+    { name: 'Романов Дима', age: '5 лет', info: 'Сын Сергея и Ольги.' },
+    { name: 'Тихонович Гавриил', age: '58 лет', info: 'Местный пасечник.' },
+    { name: 'Тихонович Марфа', age: '55 лет', info: 'Жена пасечника.' },
+    { name: 'Орловская Анна', age: '80 лет', info: 'Самая пожилая жительница Олы.' }
+  ];
+
+  const list = document.getElementById('peopleList');
+  const searchInput = document.getElementById('searchInput');
+
+  function renderList(filter = '') {
+    list.innerHTML = '';
+    const filtered = people.filter(p => 
+      p.name.toLowerCase().includes(filter.toLowerCase())
+    );
+
+    if (filtered.length === 0) {
+      list.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 30px;">Ничего не найдено</p>';
+      return;
+    }
+
+    filtered.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'person-card';
+      card.innerHTML = `
+        <div class="person-info">
+          <h3>${p.name}</h3>
+          <p>${p.info}</p>
+        </div>
+        <div class="person-age">${p.age}</div>
+      `;
+      list.appendChild(card);
+    });
+  }
+
+  searchInput.addEventListener('input', e => renderList(e.target.value));
+  renderList();
+</script>
+
+</body>
+</html>

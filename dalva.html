@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Дальва — Крупнейшее партизанское сражение</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg-primary: #0a0a0a; --bg-secondary: #1a1a1a; --bg-card: #141414;
+    --text-primary: #ffffff; --text-secondary: #a0a0a0;
+    --accent: #c41e3a; --gold: #d4af37; --border: #2a2a2a;
+  }
+  body { font-family: -apple-system, sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+  nav { position: fixed; top: 0; left: 0; right: 0; background: rgba(10,10,10,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 20px; z-index: 1000; display: flex; justify-content: center; gap: 30px; }
+  nav a { color: var(--text-secondary); text-decoration: none; font-weight: 500; }
+  nav a:hover { color: var(--gold); }
+  .header { padding: 120px 20px 60px; text-align: center; background: linear-gradient(135deg, rgba(196, 30, 58, 0.2), rgba(212, 175, 55, 0.1)); border-bottom: 1px solid var(--border); }
+  .header .badge { display: inline-block; background: rgba(196, 30, 58, 0.2); border: 1px solid var(--accent); color: var(--accent); padding: 6px 18px; border-radius: 50px; font-size: 0.85em; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; }
+  .header h1 { font-size: clamp(2em, 4vw, 3em); margin-bottom: 15px; background: linear-gradient(135deg, #fff, #a0a0a0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .header p { color: var(--text-secondary); max-width: 700px; margin: 0 auto 20px; font-size: 1.1em; }
+  .stats { display: flex; justify-content: center; gap: 40px; margin-top: 30px; flex-wrap: wrap; }
+  .stat-item { text-align: center; }
+  .stat-number { font-size: 2.5em; font-weight: 800; color: var(--accent); display: block; }
+  .stat-label { color: var(--text-secondary); font-size: 0.9em; margin-top: 5px; }
+  .content { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+  .info-block { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 30px; margin-bottom: 40px; border-left: 4px solid var(--accent); }
+  .info-block h2 { color: var(--accent); margin-bottom: 15px; font-size: 1.5em; }
+  .info-block p { color: var(--text-secondary); line-height: 1.8; }
+  .list-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 20px; }
+  .list-header h2 { color: var(--accent); font-size: 1.8em; }
+  .search-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 10px 15px; color: var(--text-primary); font-size: 1em; width: 250px; max-width: 100%; }
+  .search-box:focus { outline: none; border-color: var(--accent); }
+  .people-list { display: grid; gap: 15px; }
+  .person-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 25px; transition: all 0.3s; display: grid; grid-template-columns: auto 1fr auto; gap: 20px; align-items: center; }
+  .person-card:hover { border-color: var(--accent); transform: translateX(5px); }
+  .person-rank { background: rgba(196, 30, 58, 0.15); color: var(--accent); padding: 5px 12px; border-radius: 6px; font-size: 0.8em; font-weight: 600; white-space: nowrap; }
+  .person-info h3 { font-size: 1.15em; margin-bottom: 5px; }
+  .person-info p { color: var(--text-secondary); font-size: 0.9em; }
+  .person-years { color: var(--gold); font-weight: 600; font-size: 0.95em; white-space: nowrap; }
+  .back-btn { display: inline-block; background: var(--accent); color: white; padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 40px; transition: all 0.3s; }
+  .back-btn:hover { background: var(--gold); color: var(--bg-primary); }
+  footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 40px 20px; text-align: center; color: var(--text-secondary); margin-top: 60px; }
+  footer .quote { color: var(--gold); font-style: italic; margin-bottom: 10px; }
+  @media (max-width: 600px) { .person-card { grid-template-columns: 1fr; gap: 10px; } .person-rank, .person-years { justify-self: start; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html">← Карта памяти</a>
+</nav>
+
+<div class="header">
+  <div class="badge">Поле партизанской славы</div>
+  <h1>Дальва</h1>
+  <p>Место крупнейшего партизанского сражения в истории Великой Отечественной войны. В апреле 1943 года здесь более 5000 партизан приняли бой против карательной экспедиции.</p>
+  
+  <div class="stats">
+    <div class="stat-item">
+      <span class="stat-number">1 500+</span>
+      <div class="stat-label">партизан погибло</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">5 000</span>
+      <div class="stat-label">участников сражения</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">Апрель 1943</span>
+      <div class="stat-label">дата сражения</div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="info-block">
+    <h2>📜 О сражении</h2>
+    <p>
+      В апреле 1943 года в лесах Логойского района, в урочище Дальва, произошло крупнейшее в истории Великой Отечественной войны сражение между партизанами и карателями. Немецкое командование бросило против партизанской зоны более 60 000 солдат и офицеров при поддержке авиации и танков. Около 5000 партизан из бригад «Дяди Васи», имени К. Е. Ворошилова, «Народные мстители» и других приняли неравный бой. Сражение длилось несколько дней. Партизаны смогли вырваться из окружения и спасти тысячи мирных жителей, но потеряли более 1500 бойцов. Одновременно с этой операцией каратели сожгли соседнюю деревню Хатынь — 149 её жителей стали жертвами той же экспедиции. Дальва и Хатынь — две страницы одной трагедии.
+    </p>
+  </div>
+
+  <div class="list-header">
+    <h2>⚔️ Партизаны — герои сражения</h2>
+    <input type="text" class="search-box" id="searchInput" placeholder="🔍 Поиск по имени...">
+  </div>
+
+  <div class="people-list" id="peopleList"></div>
+</div>
+
+<footer>
+  <p class="quote">«Никто не забыт, ничто не забыто»</p>
+</footer>
+
+<script>
+  const people = [
+    { rank: 'Командир бригады', name: 'Воронянский Василий Ефимович', years: '1905–1943', info: 'Командир бригады «Дяди Васи». Погиб в бою у урочища Дальва.' },
+    { rank: 'Комиссар', name: 'Хорин Иван Тихонович', years: '1910–1943', info: 'Партизанский комиссар. Погиб при прорыве окружения.' },
+    { rank: 'Командир отряда', name: 'Бумажков Михаил Георгиевич', years: '1912–1941', info: 'Первый герой-партизан. Его отряд стал основой будущих бригад.' },
+    { rank: 'Подрывник', name: 'Ковалёв Пётр Степанович', years: '1915–1943', info: 'Подорвал 14 вражеских эшелонов. Погиб в бою под Дальвой.' },
+    { rank: 'Разведчик', name: 'Казей Марат Иванович', years: '1929–1944', info: 'Юный герой-разведчик. Позже погиб в бою, подорвав себя последней гранатой.' },
+    { rank: 'Снайпер', name: 'Михеева Анна Павловна', years: '1918–1943', info: 'Партизанка-снайпер. На её счету 67 уничтоженных врагов.' },
+    { rank: 'Командир взвода', name: 'Сидорчук Фёдор Андреевич', years: '1908–1943', info: 'Командовал взводом автоматчиков. Погиб, прикрывая отход раненых.' },
+    { rank: 'Медик', name: 'Романова Елена Ивановна', years: '1920–1943', info: 'Партизанская медсестра. Вынесла с поля боя 40 раненых. Погибла.' },
+    { rank: 'Партизан', name: 'Коробкин Николай Васильевич', years: '1912–1943', info: 'Бывший красноармеец, бежавший из плена. Погиб в первом бою.' },
+    { rank: 'Связной', name: 'Грибовская Зинаида Михайловна', years: '1925–1943', info: 'Юная связная. Доставляла донесения под огнём. Погибла.' },
+    { rank: 'Командир роты', name: 'Ткаченко Григорий Максимович', years: '1905–1943', info: 'Командовал ротой бригады «Народные мстители». Погиб в бою.' },
+    { rank: 'Пулемётчик', name: 'Волков Дмитрий Сергеевич', years: '1917–1943', info: 'Прикрывал отход бригады огнём пулемёта. Погиб, но спас товарищей.' },
+    { rank: 'Партизан', name: 'Новиков Андрей Петрович', years: '1910–1943', info: 'Местный лесник, проводник партизанских троп. Погиб в бою.' },
+    { rank: 'Разведчица', name: 'Ковалёва Мария Фёдоровна', years: '1922–1943', info: 'Работала под прикрытием в полиции. Передала ценные сведения. Расстреляна.' },
+    { rank: 'Командир отряда', name: 'Соколов Иван Константинович', years: '1903–1943', info: 'Командир отряда имени Ворошилова. Погиб при прорыве.' },
+    { rank: 'Партизан', name: 'Белый Степан Трофимович', years: '1915–1943', info: 'Бывший учитель. Вёл политработу в отряде. Погиб.' },
+    { rank: 'Подрывница', name: 'Орлова Галина Николаевна', years: '1921–1943', info: 'Минёр-диверсант. Подорвала мост с эшелоном. Погибла при задании.' },
+    { rank: 'Партизан', name: 'Мартынов Виктор Павлович', years: '1918–1943', info: 'Бывший пограничник. Погиб в рукопашной схватке.' },
+    { rank: 'Командир', name: 'Захаров Пётр Иванович', years: '1900–1943', info: 'Командир сводного отряда. Погиб, руководя обороной.' },
+    { rank: 'Партизан', name: 'Ермолович Александр Олегович', years: '1920–1943', info: 'Студент, ушедший в лес в 1941. Погиб в последнем бою.' }
+  ];
+
+  const list = document.getElementById('peopleList');
+  const searchInput = document.getElementById('searchInput');
+
+  function renderList(filter = '') {
+    list.innerHTML = '';
+    const filtered = people.filter(p => 
+      p.name.toLowerCase().includes(filter.toLowerCase()) ||
+      p.rank.toLowerCase().includes(filter.toLowerCase())
+    );
+
+    if (filtered.length === 0) {
+      list.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 30px;">Ничего не найдено</p>';
+      return;
+    }
+
+    filtered.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'person-card';
+      card.innerHTML = `
+        <div class="person-rank">${p.rank}</div>
+        <div class="person-info">
+          <h3>${p.name}</h3>
+          <p>${p.info}</p>
+        </div>
+        <div class="person-years">${p.years}</div>
+      `;
+      list.appendChild(card);
+    });
+  }
+
+  searchInput.addEventListener('input', e => renderList(e.target.value));
+  renderList();
+</script>
+
+</body>
+</html>
