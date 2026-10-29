@@ -552,7 +552,6 @@
     font-size: 4em;
     color: var(--text-secondary);
     background-size: cover;
-    background-position: center;
 }
 
   .card-content {
@@ -570,7 +569,6 @@
     line-height: 1.7;
   }
 
-  /* === СЕКЦИЯ: СВЯЗЬ ПОКОЛЕНИЙ === */
   .generations-section {
     position: relative;
     overflow: hidden;
